@@ -1,13 +1,13 @@
 package configparser_test
 
 import (
+	"github.com/glmonter/go-configparser"
 	"strconv"
 	"strings"
 
 	. "gopkg.in/check.v1"
 
-	"github.com/bigkevmcd/go-configparser"
-	"github.com/bigkevmcd/go-configparser/chainmap"
+	"github.com/glmonter/go-configparser/chainmap"
 )
 
 type customInterpolator struct {

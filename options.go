@@ -3,7 +3,7 @@ package configparser
 import (
 	"strings"
 
-	"github.com/bigkevmcd/go-configparser/chainmap"
+	"github.com/glmonter/go-configparser/chainmap"
 )
 
 const defaultSectionName = "DEFAULT"

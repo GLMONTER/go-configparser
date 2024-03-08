@@ -1,6 +1,7 @@
 package configparser_test
 
 import (
+	"github.com/glmonter/go-configparser"
 	"io"
 	"os"
 	"path"
@@ -8,8 +9,6 @@ import (
 	"testing"
 
 	. "gopkg.in/check.v1"
-
-	"github.com/bigkevmcd/go-configparser"
 )
 
 func Test(t *testing.T) { TestingT(t) }

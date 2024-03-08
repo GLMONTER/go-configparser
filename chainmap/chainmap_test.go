@@ -3,7 +3,7 @@ package chainmap_test
 import (
 	"testing"
 
-	"github.com/bigkevmcd/go-configparser/chainmap"
+	"github.com/glmonter/go-configparser/chainmap"
 
 	gc "gopkg.in/check.v1"
 )
