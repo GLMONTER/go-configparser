@@ -197,6 +197,10 @@ func (p *ConfigParser) SaveFileWithDelimiter(file *os.File, delimiter string) er
 	if err != nil {
 		return fmt.Errorf("failed to truncate file: %v", err)
 	}
+	_, err = file.Seek(0, 0)
+	if err != nil {
+		return fmt.Errorf("failed to seek to beginning of file: %v", err)
+	}
 
 	if len(p.defaults.Options()) > 0 {
 		err = writeSection(file, delimiter, p.defaults)
