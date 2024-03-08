@@ -190,6 +190,31 @@ func (p *ConfigParser) SaveWithDelimiter(filename, delimiter string) error {
 	return nil
 }
 
+// SaveFileWithDelimiter writes the current state of the ConfigParser to the
+// file with the specified delimiter.
+func (p *ConfigParser) SaveFileWithDelimiter(file *os.File, delimiter string) error {
+	err := file.Truncate(0)
+	if err != nil {
+		return fmt.Errorf("failed to truncate file: %v", err)
+	}
+
+	if len(p.defaults.Options()) > 0 {
+		err = writeSection(file, delimiter, p.defaults)
+		if err != nil {
+			return err
+		}
+	}
+
+	for _, s := range p.Sections() {
+		err = writeSection(file, delimiter, p.config[s])
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ParseReader parses data into ConfigParser from provided reader.
 func (p *ConfigParser) ParseReader(in io.Reader) error {
 	reader := bufio.NewReader(in)
